@@ -1,4 +1,4 @@
-This is my configuration of awesome wm inspired byt Copycats
+This is my configuration of awesome wm inspired by Copycats
 ============================================================
 
 Awesome WM Copycats
