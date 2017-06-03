@@ -1,5 +1,5 @@
-This is configuration of awesome wm inspired byt Copycats
-=========================================================
+This is my configuration of awesome wm inspired byt Copycats
+============================================================
 
 Awesome WM Copycats
 ===================
@@ -13,114 +13,16 @@ Themes for Awesome WM 4.x
 :License: BY-NC-SA_
 :Source: https://github.com/copycat-killer/awesome-copycats
 
-Warning
-=======
-
-If you still have to use branch 3.5.x, you can refer to the commit b0ab0d7_, but be aware that it's no longer supported.
-
-Description
-===========
-
-A set of themes for the Awesome_ window manager.
-
-Features
-========
-
-- Modularity
-- Autohide widgets
-- Autostart windowless processes
-- Fast MPD and volume shortcuts (first time this trick has been used in Awesome)
-- Shortcuts for copying to the clipboard (no need for clipboard managers), toggle wiboxes, widgets popups, screenshots capture, moving and magnifying clients
-- Quake drop-down terminal
-- Calendar with current day highlighted and months switch with a click/scroll
-- Notifications for new mails, current song, volume level, hdd critical state, low battery
-- OpenWeatherMap integration
-- Net carrier status notifier
-- Symbolic tag names
-- DWM-like textual layoutbox
-- Cairo wibar
-- Custom layouts
-- No borders when there's only one visible client
-- Freedesktop.org compliant menu and desktop icons
-- Vi-like client focus
-- Non-empty tag browsing
-- On-the-fly useless gaps resize
-- Dynamic tagging
-
-Gallery
-=======
-
-**Multicolor**, inspired by lucamanni_
-
-.. image:: http://dotshare.it/public/images/uploads/650.png
-
-**Powerarrow**, porting of romockee_'s
-
-.. image:: http://dotshare.it/public/images/uploads/1453.png
-
-**Powerarrow Dark**
-
-.. image:: http://dotshare.it/public/images/uploads/649.jpg
-
-**Steamburn**, porting of ok100_'s dwm
-
-.. image:: http://dotshare.it/public/images/uploads/648.png
-
-**Blackburn**
-
-.. image:: http://dotshare.it/public/images/uploads/553.png
-
-**Dremora**
-
-.. image:: http://dotshare.it/public/images/uploads/652.png
-
-**Rainbow**
-
-.. image:: http://dotshare.it/public/images/uploads/606.png
-
-**Holo**, requested by amouly_
-
-.. image:: http://dotshare.it/public/images/uploads/651.jpg
-
-**Copland**, inspired by foozer_
-
-.. image:: http://dotshare.it/public/images/uploads/655.png
-
-**Vertex**, requested by swordfischer_
-
-.. image:: http://dotshare.it/public/images/uploads/1432.jpg
 
 Installation
 ============
 
 .. code-block:: shell
 
-    $ git clone --recursive https://github.com/copycat-killer/awesome-copycats.git
-    $ mv -bv awesome-copycats/* ~/.config/awesome; rm -r awesome-copycats
+    $ cd .config/awesome
+    $ git clone https://github.com/radosroka/awesome.git
 
-Usage
-=====
 
-The modular structure allows to
-
-* set variables
-* define startup processes
-* change keybindings and layouts
-* set client properties
-
-in ``rc.lua``, and
-
-* configure widgets
-* define wiboxes and screen settings
-
-in ``theme.lua``, so that you just need to change ``chosen_theme`` variable in ``rc.lua`` to preserve your preferences *and* switch the theme, instead of having N different ``rc.lua`` full of redundancy.
-
-Just do the following:
-
-.. code-block:: shell
-
-    $ cd ~/.config/awesome
-    $ cp rc.lua.template rc.lua
 
 Then, set the variable ``chosen_theme`` in ``rc.lua`` to your preferred theme, do your settings, and restart Awesome (``Mod4 + ctrl + r``).
 
