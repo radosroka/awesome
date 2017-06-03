@@ -1,3 +1,6 @@
+This is configuration of awesome wm inspired byt Copycats
+=========================================================
+
 Awesome WM Copycats
 ===================
 
