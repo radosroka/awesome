@@ -68,7 +68,7 @@ local gui_editor   = "gvim"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
@@ -264,6 +264,10 @@ globalkeys = awful.util.table.join(
             awful.client.focus.bydirection("right")
             if client.focus then client.focus:raise() end
         end),
+    awful.key({ "Control" }, "l", 
+	function () 
+	   awful.util.spawn("xscreensaver-command -lock")
+	end),
     awful.key({ modkey,           }, "w", function () awful.util.mymainmenu:show() end,
               {description = "show main menu", group = "awesome"}),
 
@@ -655,4 +659,8 @@ client.connect_signal("focus",
         end
     end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
+os.execute("nm-applet &")
+os.execute("xscreensaver -no-splash &")
+--os.execute("xrandr --output eDP-1 --off")
 -- }}}
