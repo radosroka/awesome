@@ -660,7 +660,10 @@ client.connect_signal("focus",
     end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
+os.execute("xrandr --output DP-2-1 --right-of DP-2-2 --output DP-2-3 --right-of  DP-2-1 &")
 os.execute("nm-applet &")
 os.execute("xscreensaver -no-splash &")
---os.execute("xrandr --output eDP-1 --off")
+os.execute("usbguard-applet-qt &")
+os.execute("redshift -l 48.1486:17.1077 -b 1.0:0.6 &")
+os.execute("lxpolkit &")
 -- }}}
