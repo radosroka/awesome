@@ -1,9 +1,9 @@
 
 --[[
-                                       
-     Awesome WM configuration template 
-     github.com/copycat-killer         
-                                       
+
+     Awesome WM configuration template
+     github.com/copycat-killer
+
 --]]
 
 -- {{{ Required libraries
@@ -62,20 +62,20 @@ run_once({ "urxvtd", "unclutter -root" })
 local chosen_theme = "powerarrow"
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "terminator"
-local editor       = "vim"
-local gui_editor   = "gvim"
+local terminal     = "urxvt"
+local editor       = "emacsclient -t"
+local gui_editor   = "emacsclient -c"
 local browser      = "firefox"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5", "6" }
 awful.layout.layouts = {
-    awful.layout.suit.floating,
-    awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    --awful.layout.suit.fair,
+    --awful.layout.suit.floating,
+    --awful.layout.suit.tile,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
+    awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
@@ -259,13 +259,13 @@ globalkeys = awful.util.table.join(
             awful.client.focus.bydirection("left")
             if client.focus then client.focus:raise() end
         end),
+--    awful.key({ modkey }, "l",
+--       function()
+--            awful.client.focus.bydirection("right")
+--            if client.focus then client.focus:raise() end
+--        end),
     awful.key({ modkey }, "l",
-        function()
-            awful.client.focus.bydirection("right")
-            if client.focus then client.focus:raise() end
-        end),
-    awful.key({ "Control" }, "l", 
-	function () 
+	function ()
 	   awful.util.spawn("xscreensaver-command -lock")
 	end),
     awful.key({ modkey,           }, "w", function () awful.util.mymainmenu:show() end,
@@ -357,29 +357,18 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end),
 
     -- ALSA volume control
-    awful.key({ altkey }, "Up",
+    awful.key( { } , "XF86AudioRaiseVolume"  ,
         function ()
             os.execute(string.format("amixer -q set %s 5%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end),
-    awful.key({ altkey }, "Down",
+    awful.key( { } , "XF86AudioLowerVolume" ,
         function ()
             os.execute(string.format("amixer -q set %s 5%%-", beautiful.volume.channel))
             beautiful.volume.update()
         end),
-    awful.key({ altkey }, "m",
+    awful.key({ }, "XF86AudioMute",
         function ()
-            os.execute(string.format("amixer -q set %s toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    awful.key({ altkey, "Control" }, "m",
-        function ()
-            os.execute(string.format("amixer -q set %s 100%%", beautiful.volume.channel))
-            beautiful.volume.update()
-        end),
-    awful.key({ altkey, "Control" }, "0",
-        function ()
-            os.execute(string.format("amixer -q set %s 0%%", beautiful.volume.channel))
             beautiful.volume.update()
         end),
 
@@ -660,10 +649,13 @@ client.connect_signal("focus",
     end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 
-os.execute("xrandr --output DP-2-1 --right-of DP-2-2 --output DP-2-3 --right-of  DP-2-1 &")
+os.execute("xrandr --output DP-1-1 --primary --right-of DP-1-3")
+-- os.execute("blueman-applet &")
+os.execute(" xrdb -merge /etc/X11/Xresources")
 os.execute("nm-applet &")
 os.execute("xscreensaver -no-splash &")
 os.execute("usbguard-applet-qt &")
 os.execute("redshift -l 48.1486:17.1077 -b 1.0:0.6 &")
 os.execute("lxpolkit &")
+os.execute("emacs --daemon &")
 -- }}}
