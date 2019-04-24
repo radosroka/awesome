@@ -657,5 +657,5 @@ os.execute("xscreensaver -no-splash &")
 os.execute("usbguard-applet-qt &")
 os.execute("redshift -l 48.1486:17.1077 -b 1.0:0.6 &")
 os.execute("lxpolkit &")
-os.execute("emacs --daemon &")
+-- os.execute("emacs --daemon &")
 -- }}}
